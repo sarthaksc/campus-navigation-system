@@ -248,3 +248,25 @@ locations.forEach((loc, index) => {
   endSelect.appendChild(option2);
 });
 
+// A global variable to store the routing control
+let routingControl = L.Routing.control({
+    waypoints: [], // empty at first
+    routeWhileDragging: false,
+    // Optionally specify an OSRM service; default might work
+    // serviceUrl: 'https://router.project-osrm.org/route/v1/driving'
+  }).addTo(map);
+
+  document.getElementById("routeButton").addEventListener("click", () => {
+    const startIndex = document.getElementById("startPoint").value;
+    const endIndex = document.getElementById("endPoint").value;
+  
+    const startCoords = locations[startIndex].coords;
+    const endCoords = locations[endIndex].coords;
+  
+    // Update the routing control with new waypoints
+    routingControl.setWaypoints([
+      L.latLng(startCoords[0], startCoords[1]),
+      L.latLng(endCoords[0], endCoords[1])
+    ]);
+  });
+  
