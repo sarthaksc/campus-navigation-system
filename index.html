@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Campus Navigation</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet/dist/leaflet.css"
+    />
+    <!-- Optionally, you can link Leaflet Routing Machine here if you want to see the UI. -->
+  </head>
+  <body>
+    <h1>Campus Navigation System</h1>
+    <div id="mapid"></div>
+
+    <!-- UI placeholders (start/end dropdowns, route button) -->
+    <div>
+      <label for="startPoint">Start: </label>
+      <select id="startPoint"></select>
+
+      <label for="endPoint">End: </label>
+      <select id="endPoint"></select>
+
+      <button id="routeButton">Find Route</button>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Custom script(s) -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
