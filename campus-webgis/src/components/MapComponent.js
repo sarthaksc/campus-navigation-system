@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 // Import Leaflet Routing Machine
@@ -27,7 +27,9 @@ function MapComponent() {
 //     { name: 'Lab Building', coords: [40.7115, -74.0050] },
 //     { name: 'Administration', coords: [40.7145, -74.0075] },
 //   ];
-const locations = [
+
+const locations = useMemo(() => {
+  return [
     { name: "New RA Hostel", coords: [26.504822, 80.232159] },
     { name: "Tutorial Block", coords: [26.510899, 80.232370] },
     { name: "Flight Lab", coords: [26.518817, 80.232378] },
@@ -244,6 +246,10 @@ const locations = [
     { name: "Hall 1 Mess", coords: [26.509475, 80.231937] },
     { name: "health center", coords: [26.505286, 80.233693] }
   ];
+  // If this data never changes, leave dependency empty: []
+  // If you fetch or recalculate it, add the relevant dependencies.
+}, []);
+
 
   // State for selected start/end (default to first index or -1 if none)
   const [startIndex, setStartIndex] = useState(0);
