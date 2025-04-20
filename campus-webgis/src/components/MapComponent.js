@@ -280,13 +280,14 @@ function MapComponent() {
 
     // Pass popup content as HTML strings
     L.marker(startCoords)
-      .bindPopup(`<b>${locations[startIndex].name}</b>`)
+      .bindPopup(`<b>${locations[startIndex].name}</b>`, { autoClose: false, closeOnClick: false })
       .addTo(poiLayerRef.current)
       .openPopup();
 
     L.marker(endCoords)
-      .bindPopup(`<b>${locations[endIndex].name}</b>`)
-      .addTo(poiLayerRef.current);
+      .bindPopup(`<b>${locations[endIndex].name}</b>`, { autoClose: false, closeOnClick: false })
+      .addTo(poiLayerRef.current)
+      .openPopup();
   };
 
   return (
